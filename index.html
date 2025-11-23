@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week4</title>
+</head>
+<body>
+    <script>
+        function sumArray(arr) {
+    let sum = 0;
+    
+    for (const number of arr) {
+        sum = sum + number;
+    }
+    
+    return sum;
+}
+
+const numbers = [5, 10, 15, 20];
+
+const totalSum = sumArray(numbers);
+
+console.log("--- SumArray Function Execution ---");
+console.log("Input Array:", numbers);
+console.log("Calculated Sum (sumArray(numbers)):", totalSum);
+console.log("-----------------------------------");
+    </script>
+</body>
+</html>
