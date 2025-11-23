@@ -3,28 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>week4</title>
+    <title>JavaScript Console Output</title>
+    <style>
+        /* 🎨 CSS for Centering and Styling */
+        body { 
+            /* Flexbox properties for centering */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;    /* Center vertically */
+            min-height: 100vh;      /* Make sure body takes up full viewport height */
+            margin: 0;              /* Remove default margin */
+
+            /* General styling */
+            font-family: sans-serif; 
+            background-color: #f4f4f9; 
+            flex-direction: column; /* Stack children vertically */
+        }
+        
+        /* Container for the content */
+        .container {
+            text-align: center; /* Center text within the container */
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 400px;
+        }
+
+        /* Button Styling */
+        button { 
+            padding: 12px 20px; 
+            font-size: 17px; 
+            cursor: pointer; 
+            background-color: #007BFF; /* A nice blue */
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            transition: background-color 0.3s, transform 0.1s;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .tip {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px dashed #ddd;
+            padding-top: 15px;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="container">
+        <h1>JavaScript Code Execution</h1>
+        
+        <button onclick="executeAllCode()">Run JS Functions and Print to Console</button>
+
+        <p class="tip">
+            **After clicking the button**, open your browser's Developer Console (usually by pressing **F12** or right-click -> Inspect -> Console tab) to see the output from all three functions.
+        </p>
+    </div>
+
     <script>
-        function sumArray(arr) {
-    let sum = 0;
-    
-    for (const number of arr) {
-        sum = sum + number;
-    }
-    
-    return sum;
-}
+        function executeAllCode() {
+            console.clear();
+            console.log("=================================================");
+            console.log("             START OF JAVASCRIPT LOGS            ");
+            console.log("=================================================");
+            
+            // --- Q1: sumArray Function ---
+            function sumArray(arr) {
+                let sum = 0;
+                
+                for (const number of arr) {
+                    sum = sum + number;
+                }
+                
+                return sum;
+            }
+            const numbers = [5, 10, 15, 20];
+            const totalSum = sumArray(numbers);
+            console.log("\n--- Q1: SumArray Function Execution ---");
+            console.log("Input Array:", numbers);
+            console.log("Calculated Sum (sumArray(numbers)):", totalSum);
+            console.log("---------------------------------------");
 
-const numbers = [5, 10, 15, 20];
+            // --- Q2: longNames Function ---
+            function longNames(names) {
+                return names.filter(name => {
+                    return name.length > 4;
+                });
+            }
+            const names = ["Ali", "Sara", "Omar", "Lina", "Mohamed"];
+            const result = longNames(names);
+            console.log("\n--- Q2: LongNames Function Execution ---");
+            console.log("Original Names:", names);
+            console.log("Long Names (longer than 4 characters):", result);
+            console.log("---------------------------------------");
 
-const totalSum = sumArray(numbers);
+            // --- Q3: countWords Function ---
+            function countWords(str) {
+                const cleanedStr = str
+                    .toLowerCase()
+                    .replace(/[^a-z0-9\s]/g, '')
+                    .trim()
+                    .replace(/\s+/g, ' ');
 
-console.log("--- SumArray Function Execution ---");
-console.log("Input Array:", numbers);
-console.log("Calculated Sum (sumArray(numbers)):", totalSum);
-console.log("-----------------------------------");
+                if (!cleanedStr) {
+                    return {};
+                }
+
+                return cleanedStr.split(' ').reduce((counts, word) => {
+                    if (word) {
+                        counts[word] = (counts[word] || 0) + 1;
+                    }
+                    return counts;
+                }, {});
+            }
+            const exampleInput = "hello world hello";
+            const exampleOutput = countWords(exampleInput);
+            console.log("\n--- Q3: CountWords Function Execution ---");
+            console.log(`Example Input: "${exampleInput}"`);
+            console.log(`Expected Output: { "hello": 2, "world": 1 }`);
+            console.log(`Actual Output: ${JSON.stringify(exampleOutput)}`);
+            console.log("---------------------------------------");
+            
+            console.log("\n=================================================");
+            console.log("              END OF JAVASCRIPT LOGS             ");
+            console.log("=================================================");
+        }
     </script>
+
 </body>
 </html>
