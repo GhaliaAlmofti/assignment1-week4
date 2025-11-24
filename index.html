@@ -3,71 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Console Output</title>
-    <style>
-        body { 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: sans-serif; 
-            background-color: #f4f4f9; 
-            flex-direction: column;
-        }
-        
-        .container {
-            text-align: center;
-            padding: 30px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 90%;
-            width: 400px;
-        }
+    <title>Code Runner Fun</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        button { 
-            padding: 12px 20px; 
-            font-size: 17px; 
-            cursor: pointer; 
-            background-color: #007BFF;
-            color: white; 
-            border: none; 
-            border-radius: 6px; 
-            transition: background-color 0.3s, transform 0.1s;
-            margin-top: 15px;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'google-blue': '#1a73e8',
+                        'google-green': '#34a853',
+                        'soft-blue': '#e6f7ff',
+                        'tip-red': '#e21c33',
+                    },
+                }
+            }
         }
-        button:hover {
-            background-color: #0056b3;
-        }
-        button:active {
-            transform: scale(0.98);
-        }
-        
-        h1 {
-            color: #333;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .tip {
-            margin-top: 25px;
-            font-size: 0.9rem;
-            color: #555;
-            border-top: 1px dashed #ddd;
-            padding-top: 15px;
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="flex flex-col justify-center items-center min-h-screen m-0 bg-soft-blue font-sans">
 
-    <div class="container">
-        <h1>JavaScript Code Execution</h1>
+    <div class="container bg-white text-center p-10 rounded-xl shadow-2xl max-w-lg w-full">
+        <h1 class="text-google-blue text-3xl mb-6 font-semibold">
+            🔍 JavaScript Code Runner
+        </h1>
         
-        <button onclick="executeAllCode()">Run JS Functions and Print to Console</button>
+        <button 
+            onclick="executeAllCode()"
+            class="py-4 px-8 text-lg font-bold text-white bg-google-green rounded-lg shadow-xl hover:bg-green-700 transition duration-300 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-green-300"
+        >
+            Click Me to Run All Functions!
+        </button>
 
-        <p class="tip">
-            **After clicking the button**, open your browser's Developer Console (F12) to see the output.
+        <p class="text-base text-gray-600 border-t-2 border-gray-100 pt-5 mt-8 leading-relaxed">
+            <strong class="text-tip-red">Heads Up!</strong> The results won't show up here. Please press <kbd class="px-1 py-0.5 bg-gray-200 rounded text-sm font-mono">F12</kbd> (or right-click $\rightarrow$ Inspect $\rightarrow$ Console) after clicking the button to see the magic happen!
         </p>
     </div>
 
