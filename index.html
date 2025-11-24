@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Console Output</title>
     <style>
-        /* 🎨 CSS for Centering and Styling */
         body { 
-            /* Flexbox properties for centering */
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center;    /* Center vertically */
-            min-height: 100vh;      /* Make sure body takes up full viewport height */
-            margin: 0;              /* Remove default margin */
-
-            /* General styling */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
             font-family: sans-serif; 
             background-color: #f4f4f9; 
-            flex-direction: column; /* Stack children vertically */
+            flex-direction: column;
         }
         
-        /* Container for the content */
         .container {
-            text-align: center; /* Center text within the container */
+            text-align: center;
             padding: 30px;
             background-color: white;
             border-radius: 10px;
@@ -31,12 +26,11 @@
             width: 400px;
         }
 
-        /* Button Styling */
         button { 
             padding: 12px 20px; 
             font-size: 17px; 
             cursor: pointer; 
-            background-color: #007BFF; /* A nice blue */
+            background-color: #007BFF;
             color: white; 
             border: none; 
             border-radius: 6px; 
@@ -73,7 +67,7 @@
         <button onclick="executeAllCode()">Run JS Functions and Print to Console</button>
 
         <p class="tip">
-            **After clicking the button**, open your browser's Developer Console (usually by pressing **F12** or right-click -> Inspect -> Console tab) to see the output from all three functions.
+            **After clicking the button**, open your browser's Developer Console (F12) to see the output.
         </p>
     </div>
 
@@ -84,7 +78,6 @@
             console.log("             START OF JAVASCRIPT LOGS            ");
             console.log("=================================================");
             
-            // --- Q1: sumArray Function ---
             function sumArray(arr) {
                 let sum = 0;
                 
@@ -101,7 +94,6 @@
             console.log("Calculated Sum (sumArray(numbers)):", totalSum);
             console.log("---------------------------------------");
 
-            // --- Q2: longNames Function ---
             function longNames(names) {
                 return names.filter(name => {
                     return name.length > 4;
@@ -114,7 +106,6 @@
             console.log("Long Names (longer than 4 characters):", result);
             console.log("---------------------------------------");
 
-            // --- Q3: countWords Function ---
             function countWords(str) {
                 const cleanedStr = str
                     .toLowerCase()
@@ -137,7 +128,6 @@
             const exampleOutput = countWords(exampleInput);
             console.log("\n--- Q3: CountWords Function Execution ---");
             console.log(`Example Input: "${exampleInput}"`);
-            console.log(`Expected Output: { "hello": 2, "world": 1 }`);
             console.log(`Actual Output: ${JSON.stringify(exampleOutput)}`);
             console.log("---------------------------------------");
             
